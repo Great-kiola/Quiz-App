@@ -30,13 +30,13 @@ let correct = 0;
 let userAns = undefined;
 
 // start button clicked
-// startbtn.addEventListener("click", () => {
-//     question.style.display = 'block';
-//     choices.style.display = 'block';
+startbtn.addEventListener("click", () => {
+    question.style.display = 'block';
+    choices.style.display = 'block';
 
-//     interval = setInterval(countdown, 1000);
-//     loadData();
-// });
+    interval = setInterval(countdown, 1000);
+    loadData();
+});
 
 // Dispalying questions
 let loadData = () => {
