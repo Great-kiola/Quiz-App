@@ -32,7 +32,7 @@ Requires no installation,
 ## Deployment
 
 To deploy this project run
-click on the url ==> 
+click on the url ==> https://great-kiola.github.io/Quiz-App/
 
 ## Screenshots
 
