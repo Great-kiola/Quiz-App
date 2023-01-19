@@ -40,11 +40,11 @@ startbtn.addEventListener("click", () => {
 
 // Dispalying questions
 let loadData = () => {
-    questionsTi.innerHTML = allquestions[index].question
-    choice1.innerText = allquestions[index].choice1
-    choice2.innerText = allquestions[index].choice2
-    choice3.innerText = allquestions[index].choice3
-    choice4.innerText = allquestions[index].choice4
+    questionsTi.innerHTML = question[index].question
+    choice1.innerText = question[index].choice1
+    choice2.innerText = question[index].choice2
+    choice3.innerText = question[index].choice3
+    choice4.innerText = question[index].choice4
 
 
     // Timer start
@@ -59,7 +59,7 @@ choice_que.forEach( (choices, choiceNo) => {
     choices.addEventListener("click", () => {
         choices.classList.add("active");
 
-        if (choiceNo === allquestions[index].answer) {
+        if (choiceNo === question[index].answer) {
             correct ++;
         }
         else {
