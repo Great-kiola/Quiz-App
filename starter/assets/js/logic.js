@@ -1,5 +1,3 @@
-
-
 // Start Section
 let startbtn = document.querySelector("#start");
 
