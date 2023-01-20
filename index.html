@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Coding Quiz</title>
 
-    <link rel="stylesheet" href="./starter/assets/css/styles.css"/>
+    <link rel="stylesheet" href="./assets/css/styles.css"/>
   </head>
 
   <body>
-    <div class="scores"><a href="highscores.html">View Highscores</a></div>
+    <div class="scores"><a href="./highscores.html">View Highscores</a></div>
 
     <div class="timer">Time: <span id="time">0</span></div>
 
@@ -24,11 +24,27 @@
         </p>
         <button id="start">Start Quiz</button> 
       </div>
+
+      <!--- Question section -->
       <div id="questions" class="hide">
-        <h2 id="question-title"></h2>
+        <h4 id="question-title"></h4>
         <div id="choices" class="choices"></div>
       </div>
 
+      <!--- All choides -->
+      <div id="optionList">
+        <h4 class="choice_que" id="option1"></h4>
+        <h4 class="choice_que" id="option2"></h4>
+        <h4 class="choice_que" id="option3"></h4>
+        <h4 class="choice_que" id="option4"></h4>
+      </div>
+
+      <!--- All Answers -->
+      <div id="answerSection" class="hide">
+        <h3 id="total-correct" class="points">You have gained 20 points</h3>
+      </div>
+
+      <!----Result section -->
       <div id="end-screen" class="hide">
         <h2>All done!</h2>
         <p>Your final score is <span id="final-score"></span>.</p>
@@ -41,7 +57,7 @@
       <div id="feedback" class="feedback hide"></div>
     </div>
 
-    <script src="./starter/assets/js/questions.js"></script>
-    <script src="./starter/assets/js/logic.js"></script>
+    <script src="./assets/js/questions.js"></script>
+    <script src="./assets/js/logic.js"></script>
   </body>
 </html>
