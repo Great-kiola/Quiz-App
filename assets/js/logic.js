@@ -113,6 +113,8 @@ function endGame() {
     answerSection.classList.add("hide")
     feedback.classList.add("hide");
 
+    clearInterval(interval);
+    // timeVal.innerText = 0;
 
 
 }
@@ -120,5 +122,7 @@ function endGame() {
 
 //Highscore submit button
 submitBtn.addEventListener("click", ()=>{
-    localStorage.setItem('correct');
+    // localStorage.setItem('correct');
+    // window.location.assign(href="./")
+
 });
