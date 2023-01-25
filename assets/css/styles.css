@@ -38,7 +38,16 @@ input[type="text"] {
   font-size: 100%;
 }
 
+ul {
+  padding: 9px;
+  padding-left: 0px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+
 ol {
+  /* padding: 9px; */
   padding-left: 0px;
   max-height: 400px;
   overflow: auto;
@@ -47,6 +56,15 @@ ol {
 li {
   padding: 5px;
   list-style: decimal inside none;
+}
+
+#highscoresList {
+  padding: 5px;
+  list-style: decimal inside none;
+}
+
+li {
+  background-color: #f3edfc;
 }
 
 /* li:nth-child(odd) {
