@@ -32,16 +32,18 @@
       </div>
 
       <!--- All choides -->
-      <div id="optionList">
-        <h4 class="choice_que" id="option1"></h4>
-        <h4 class="choice_que" id="option2"></h4>
-        <h4 class="choice_que" id="option3"></h4>
-        <h4 class="choice_que" id="option4"></h4>
+      <div>
+        <ol id="optionList" class="hide">
+          <button onclick="checkAnswer(1)"><li class="choice_que" id="option1"></li> </button>
+          <button onclick="checkAnswer(2)"><li class="choice_que" id="option2"></li></button>
+          <button onclick="checkAnswer(3)"><li class="choice_que" id="option3"></li></button>
+          <button onclick="checkAnswer(4)"><li class="choice_que" id="option4"></li></button>
+        </ol>
       </div>
 
       <!--- All Answers -->
       <div id="answerSection" class="hide">
-        <h3 id="total-correct" class="points">You have gained 20 points</h3>
+        <h3 id="answer-results" class="points"></h3>
       </div>
 
       <!----Result section -->

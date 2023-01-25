@@ -1,8 +1,9 @@
 // Start Section
 let startbtn = document.querySelector("#start");
 let startScrn = document.querySelector("#start-screen")
+let feedback = document.querySelector("#feedback")
 
-// Question Section
+// Question Section 
 let question = document.querySelector("#questions");
 let questionsTi = document.querySelector("#question-title");
 
@@ -14,7 +15,7 @@ let option3 = document.querySelector('#option3');
 let option4 = document.querySelector('#option4');
 
 // End Screen
-let endScrn = document.querySelector("end-screen");
+let endScrn = document.querySelector("#end-screen");
 let correctVal = document.querySelector("#total-correct");
 let points = document.querySelector("#final-score");
 
@@ -24,24 +25,34 @@ let questions = document.querySelectorAll(".choice_que")
 //Timer
 let timeVal = document.querySelector("#time");
 
+// Answer section
+let answerSection = document.querySelector("#answerSection")
+
+
+// submit Button
+let submitBtn = document.querySelector("#submit")
+
+
+
 let index = 0;
-let timer = 0;
-let interval = 0;
+let timer = 60;
+let interval;
 
 // All points
 let correct = 0;
 
 // Store answer value
-let userAns = undefined;
-
-
+let userAns;
 
 
 // start button clicked
 startbtn.addEventListener("click", () => {
-    question.style.display = 'block';
-    // optionList.style.display = 'block';
-    startScrn.style.display = 'none';
+    feedback.classList.remove("hide")
+    question.classList.remove("hide");
+    optionList.classList.remove("hide");
+    startScrn.classList.add("hide");
+    answerSection.classList.remove("hide")
+    
 
     interval = setInterval(countdown, 1000);
     loadData();
@@ -50,104 +61,64 @@ startbtn.addEventListener("click", () => {
 
 // Timer.
 let countdown = () => {
-    if (timer === 5 ) {
+    if (timer <= 0) {
         clearInterval(interval);
-        optionList.click();
+        endGame();
     } else {
-        timer ++;
+        timer--;
         timeVal.innerText = timer;
-       
     }
 };
 
-setInterval(countdown, 1000);
 
 
 let loadData = () => {
-    optionList.innerText = index + 1 + ". ";
     question.innerText = allquestions[index].question;
     option1.innerText = allquestions[index].option1;
     option2.innerText = allquestions[index].option2;
     option3.innerText = allquestions[index].option3;
     option4.innerText = allquestions[index].option4;
-
-    timer = 0;
 };
 
-loadData();
 
 
-choiceNo.forEach( (optionList, choiceNo) => {
-    optionList.addEventListener("click", ()=> {
-        optionList.classList.add("active");
+function checkAnswer(optionNo) {
+    var answerElement = document.querySelector("#answer-results");
+    if (optionNo === allquestions[index].answer) {
+        correct += 15;
+        answerElement.textContent = "Correct, You won 10 points"
+    } else {
+        correct += 0;
+        answerElement.textContent = "Wrong, better luck next time."
+        timer -= 15;
+    }
 
-        if (choiceNo === allquestions[index].answer) {
-            correct ++;
-        } else {
-            correct += 0;
-        }
-        clearInterval(interval);
+    index++;
 
-        for (i = 0; i <=3; i++){
-            questions[i].classList.add("disabled")
-        }
-    })
-})
-
-
-
-
-
-
-
+    if (index < allquestions.length) {
+        loadData();
+        
+    } else {
+        endGame();
+    }
+    
+};
 
 
-
-
-
-
-
-
-
+// End game function
+function endGame() {
+    endScrn.classList.remove("hide");
+    question.classList.add("hide");
+    optionList.classList.add("hide");
+    answerSection.classList.add("hide")
+    feedback.classList.add("hide");
 
 
 
+}
 
 
-
-
-
-
-
-
-// Dispalying questions
-// let loadData = () => {
-//     questionsTi.innerHTML = allquestions[index].question
-
-//     choice1.innerText = allquestions[index].choice1
-//     choice2.innerText = allquestions[index].choice2
-//     choice3.innerText = allquestions[index].choice3
-//     choice4.innerText = allquestions[index].choice4
-
-
-//     // Timer start
-//     timer = 0;
-
-// }
-
-// loadData();
-
-
-
-// choice_que.forEach( (choices, choiceNo) => {
-//     choices.addEventListener("click", () => {
-//         choices.classList.add("active");
-
-//         if (choiceNo === allquestions[index].answer) {
-//             correct ++;
-//         }
-//         else {
-//             correct += 0
-//         }
-//     })
-// })
+//Highscore submit button
+submitBtn.addEventListener("click", ()=>{
+    localStorage.setItem('correct');
+});
