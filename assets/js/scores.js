@@ -13,5 +13,5 @@ let clearBtn = document.querySelector("#clear");
 
 clearBtn.addEventListener ("click", () => {
     localStorage.clear("highscoresList");
-    window.location.assign("/highscores.html")
+    window.location.assign("./highscores.html")
 })

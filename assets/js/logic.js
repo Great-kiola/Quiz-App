@@ -83,16 +83,31 @@ let loadData = () => {
     option4.innerText = allquestions[index].option4;
 };
 
+const myAudioCorrect = new Audio("./assets/sfx/correct.wav");
+const myAudioWrong = new Audio("./assets/sfx/incorrect.wav");
+
+function playSoundCorrect(){
+    let correctAns = myAudioCorrect;
+    correctAns.play();
+}
+
+
+function playSoundWrong(){
+    let wrongAns = myAudioWrong;
+    wrongAns.play();
+}
 
 
 function checkAnswer(optionNo) {
     var answerElement = document.querySelector("#answer-results");
     if (optionNo === allquestions[index].answer) {
         correct += 15;  // calculate the score i have and save it to the correct var.
+        playSoundCorrect();
         answerElement.textContent = "Correct, You won 15 points"
 
     } else {
         correct += 0;
+        playSoundWrong();
         answerElement.textContent = "Wrong, better luck next time."
         timer -= 15;
     }
